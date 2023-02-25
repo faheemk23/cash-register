@@ -10,6 +10,12 @@ const message=document.querySelector("#message")                    // message e
 
 const notesDisplay=document.querySelectorAll(".notes")             // elements where number of notes will be shown in change returned
 
+const notesSelected=document.querySelector("#notes-selected")
+
+const middlePart=document.querySelector("#middle-part")
+const lastPart=document.querySelector("#last-part")
+
+const doneButton=document.querySelector("#btn-done")
 // all available notes' buttons
 
 const twoThousand =document.querySelector("#btn-twothousand")
@@ -23,8 +29,11 @@ const one=document.querySelector("#btn-one")
 const availableNotes={}                          //object to store notes selected by user as key with corresponding notes display element as value
 
 cashGivenDiv.style.display="none"                //to hide cash-given until user adds a bill amount
+lastPart.style.display="none"
 
 billAmount.value=""                               // to reset bill amount when page is refreshed
+
+
 
 const showMessage=(msg)=>{
     message.style.display="block"
@@ -48,39 +57,53 @@ const calculateChange = amount => {
 }
 
 
+const updateNotesSelected=(note)=>{
+    notesSelected.innerHTML+=`<span> ${note} ,</span>`
+}
+
+
+
 // event listeners for notes' buttons (Note: tried for loop but callback function didn't recognize 'i')
 
 twoThousand.addEventListener("click",(event)=>{
+    updateNotesSelected(twoThousand.innerText)
     twoThousand.style.display="none"
     availableNotes[Number(twoThousand.innerText)]=notesDisplay[0]
+    
 
 })
 fiveHundred.addEventListener("click",()=>{
+    updateNotesSelected(fiveHundred.innerText)
     fiveHundred.style.display="none"
     availableNotes[Number(fiveHundred.innerText)]=notesDisplay[1]
 
 })
 hundred.addEventListener("click",()=>{
+    updateNotesSelected(hundred.innerText)
     hundred.style.display="none"
     availableNotes[Number(hundred.innerText)]=notesDisplay[2]
 
 })
 twenty.addEventListener("click",()=>{
+    updateNotesSelected(twenty.innerText)
     twenty.style.display="none"
     availableNotes[Number(twenty.innerText)]=notesDisplay[3]
 
 })
 ten.addEventListener("click",()=>{
+    updateNotesSelected(ten.innerText)
     ten.style.display="none"
     availableNotes[Number(ten.innerText)]=notesDisplay[4]
 
 })
 five.addEventListener("click",()=>{
+    updateNotesSelected(five.innerText)
     five.style.display="none"
     availableNotes[Number(five.innerText)]=notesDisplay[5]
 
 })
 one.addEventListener("click",()=>{
+    updateNotesSelected(one.innerText)
     one.style.display="none"
     availableNotes[Number(one.innerText)]=notesDisplay[6]
 
@@ -111,6 +134,11 @@ const billAmountEventListener=()=>{
 }
 
 billAmount.addEventListener("change",billAmountEventListener)
+
+doneButton.addEventListener("click",()=>{
+    middlePart.style.display="none"
+    lastPart.style.display="block"
+})
 
 
 
