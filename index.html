@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash register</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+            <h1 class="initial-section-heading">Cash Register Manager</h1>
+            <p style="font-size: larger;" class="section-help">Enter the bill amount, cash given by the customer and notes you have and know minimum number of notes to return.</p>
+            <hr>
+            <div id="middle-part">
+                <div class="trial ">
+                    <p style="font-size: larger;" id="trial-message">Please select all the notes available to you:</p>
+            
+                    <button class="notes-available" id="btn-twothousand">2000</button>
+                    <button class="notes-available" id="btn-fivehundred">500</button>
+                    <button class="notes-available" id="btn-hundred">100</button>
+                    <button class="notes-available" id="btn-twenty">20</button>
+                    <button class="notes-available" id="btn-ten">10</button>
+                    <button class="notes-available" id="btn-five">5</button>
+                    <button class="notes-available" id="btn-one">1</button>
+                </div>
+            
+                <p style="font-size: larger;" >Notes selected by you:</p>
+                <div style="font-size: larger;margin: 1rem;color: var(--primary-color);" id="notes-selected"></div>
+                
+              
+                <button class="main-btn" id="btn-done">Done</button>
+            </div>
+            <div id="last-part">
+                <div class="bill-amount">
+                    <label style="display: block;" for="bill-amount"><b>Bill Amount:</b></label>
+                    <input class="user-input" type="number" id="bill-amount"  />
+                </div>
+
+                <div class="cash-given">
+                    <label style="display: block;" for="cash-given"><b>Cash Given:</b></label>
+                    <input class="user-input" type="number"  id="cash-given" >
+                </div>
+                <div class="check-button"><input class="main-btn" type="submit" id="btn-check" value="Check" /></div>
+                
+            
+
+                <p id="message"></p>
+            
+                <table>
+                    <caption>Return Change</caption>
+                    <tbody>
+                        <tr>
+                            <th>No. of Notes</th>
+                            <td class="notes"></td>
+                            <td class="notes"></td>
+                            <td class="notes"></td>
+                            <td class="notes"></td>
+                            <td class="notes"></td>
+                            <td class="notes"></td>
+                            <td class="notes"></td>
+                        </tr>
+                        <tr>
+                            <th>Note</th>
+                            <td>2000</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="note"><b>Note:</b> Refresh the page to select the notes again.</p>
+            </div>
+
+    <script src="main.js" type="text/javascript"></script>
+</body>
+</html>
